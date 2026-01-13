@@ -124,6 +124,16 @@ class General extends Base {
 							),
 						),
 					),
+					'map_api_key'       => array(
+						'labels' => array(
+							'name' => __('API Key', 'gatherpress'),
+						),
+						'description'=>__('Map API key for static image generation','gatherpress'),
+						'field'=> array(
+							'label'=> __("Map API Key", 'gatherpress'),
+							'type'=> 'text',
+						)
+					),
 					'max_attendance_limit'  => array(
 						'labels'      => array(
 							'name' => __( 'Maximum Attendance Limit', 'gatherpress' ),

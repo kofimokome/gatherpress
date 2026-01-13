@@ -47,6 +47,8 @@ domReady( () => {
 		`[data-gatherpress_block_name="map-embed"]`,
 	);
 
+	const static_image_container = document.querySelector(`[data-gatherpress_block_name="static-map"]`)
+
 	for ( const container of containers ) {
 		const attrs = JSON.parse( container.dataset.gatherpress_block_attrs );
 
@@ -62,6 +64,7 @@ domReady( () => {
 				zoom={ attrs.mapZoomLevel }
 				type={ attrs.mapType }
 				height={ attrs.mapHeight }
+				onLoad = { () => { static_image_container.remove(); container.style.display = 'block'; } }
 			/>,
 		);
 	}

@@ -40,6 +40,7 @@ const OpenStreetMap = ( props ) => {
 		height = 300,
 		latitude,
 		longitude,
+		onLoad
 	} = props;
 	const [ Leaflet, setLeaflet ] = useState( null );
 	const mapId = `map-${ uuidv4() }`;
@@ -109,6 +110,11 @@ const OpenStreetMap = ( props ) => {
 				},
 			},
 		} ).setView( [ latitude, longitude ], zoom );
+
+		map.whenReady( () => {
+			 onLoad();
+		} );
+
 		mapInstanceRef.current = map;
 
 		Leaflet.Icon.Default.imagePath =

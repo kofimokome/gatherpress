@@ -18,7 +18,7 @@
  * @return {JSX.Element} The rendered React component.
  */
 const GoogleMap = ( props ) => {
-	const { zoom, type, className, location, latitude, longitude, height } =
+	const { zoom, type, className, location, latitude, longitude, height, onLoad } =
 		props;
 
 	const style = { border: 0, height, width: '100%' };
@@ -39,6 +39,7 @@ const GoogleMap = ( props ) => {
 			style={ style }
 			className={ className }
 			title={ location }
+			onLoad={ () => onLoad() }
 		></iframe>
 	);
 };

@@ -33,7 +33,7 @@ const MapEmbed = ( props ) => {
 	const isAdmin = select( 'core' )?.canUser( 'create', 'posts' );
 	const isPostEditor = Boolean( select( 'core/edit-post' ) );
 	const { zoom, type, className, latitude, longitude } = props;
-	let { location, height } = props;
+	let { location, height, onLoad } = props;
 
 	if ( ! height ) {
 		height = 300;
@@ -56,6 +56,7 @@ const MapEmbed = ( props ) => {
 				zoom={ zoom }
 				type={ type }
 				height={ height }
+				onLoad={ () => onLoad() }
 			/>
 		);
 	} else if ( 'osm' === mapPlatform ) {
@@ -67,6 +68,7 @@ const MapEmbed = ( props ) => {
 				className={ className }
 				zoom={ zoom }
 				height={ height }
+				onLoad={ () => onLoad() }
 			/>
 		);
 	}
